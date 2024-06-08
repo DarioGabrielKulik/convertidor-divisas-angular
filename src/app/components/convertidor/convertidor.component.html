@@ -1,0 +1,39 @@
+<div class="container">
+  <h3 class="mt-4 text-light fs-3">Convertidor</h3>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label text-light fs-5"
+          >Ingrese Cantidad</label
+        >
+        <input
+          type="number"
+          class="form-control form-control-lg"
+          id="exampleFormControlInput1"
+          placeholder="Ingrese Cantidad"
+          [(ngModel)]="cantidad"
+          (input)="convertir()"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <label for="exampleColorInput" class="form-label text-light fs-5">TENGO</label>
+      <select class="form-select form-control-lg" aria-label="Default select example" id="tengo" [(ngModel)]="tengo" (change)="convertir()">
+        <option *ngFor="let moneda of monedas ; let i = index">{{moneda}}</option>
+      </select>
+    </div>
+    <div class="col-lg-6">
+      <label for="exampleColorInput" class="form-label text-light fs-5">QUIERO</label>
+      <select class="form-select form-control-lg" aria-label="Default select example" id="quiero" [(ngModel)]="quiero" (change)="convertir()">
+        <option *ngFor="let moneda of monedas ; let j = index">{{moneda}}</option>
+      </select>
+    </div>
+  </div>
+  <h5 class="text-center mt-4 text-light fs-2">
+    <span class="badge bg-success">{{cantidad}}  {{tengo}}</span>
+    <span class="badge bg-secondary m-4">son</span>
+    <span class="badge bg-success">{{total}}  {{quiero}}</span>
+  </h5>
+</div>
